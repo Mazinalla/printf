@@ -35,7 +35,7 @@ int _printf(const char *format, ...)
 		{
 			_putchar('%');
 		}
-		else if (format[x] == '%' && format[x + 1] == NULL)
+		else if (format[x] == '%' && format[x + 1] == '\0')
 		{
 			return (-1);
 		}
