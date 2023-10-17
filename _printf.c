@@ -39,8 +39,11 @@ int _printf(const char *format, ...)
 		{
 			return (-1);
 		}
-		else
-		print_d(format[x + 1]);
+		else if (format[x] == '%' && format[x + 1] == 'd')
+		{
+		
+			print_d(format[x + 1]);
+		}
 		return (0);
 		cnt += 1;
 	}
