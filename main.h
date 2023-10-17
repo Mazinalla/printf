@@ -8,5 +8,7 @@
 int _puts(char *c);
 int _putchar(char y);
 int _printf(const char *format, ...);
+int print_ld(int n);
+int print_d(int c);
 
 #endif /*MAIN_H*/

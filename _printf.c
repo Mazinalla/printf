@@ -40,6 +40,7 @@ int _printf(const char *format, ...)
 			return (-1);
 		}
 		else
+		print_d(format[x + 1]);
 		return (0);
 		cnt += 1;
 	}
@@ -72,4 +73,42 @@ int _puts(char *c)
 int _putchar(char y)
 {
 	return (write(1, &y, 1));
+}
+/**
+ * print_d - checks for a digit (0 through 9).
+ *@c: character 
+ * Return: Always 0.
+ */
+int print_d(int *c)
+{
+	int x = 0;
+
+	if (c)
+        for (x = 48; c[x] < 58; x++)
+        {
+                _putchar(c[x]);
+        }
+        _putchar('\n');
+	return (0);
+}
+/**
+ * print_ld - prints the last digit of a number
+ * @n: the int to extract the last digit from
+ * Return: value of the last digit
+ */
+int print_ld(int *n)
+{
+        int a;
+
+        if (n < 0)
+        n = -n;
+
+        a = n % 10;
+
+        if (a < 0)
+                a = -a;
+
+        _putchar(a + '0');
+
+        return (a);
 }
