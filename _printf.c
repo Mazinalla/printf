@@ -6,68 +6,57 @@
  */
 int _printf(const char *format, ...)
 {
-	unsigned int x, cnt = 0;
+int x, print = 0, print_ch = 0;
+	int flags, width, precision, size, buff_ind = 0;
+	va_list list;
+	char buffer[BUFF_SIZE];
 
-	unsigned int s_count;
+	if (format == NULL)
+		return (-1);
+	va_start(list, format);
 
-	va_list args;
-
-	va_start(args, format);
-
-	for (x = 0; format[x] != '\0'; x++)
+	for (x = 0; format && format[x] != '\0'; x++)
 	{
 		if (format[x] != '%')
 		{
-			_putchar(format[x]);
-		}
-		else if (format[x] == '%' && format[x + 1] == 'c')
-		{
-			_putchar(va_arg(args, int));
-			x++;
-		}
-		else if (format[x] == '%' && format[x + 1] == 's')
-		{
-			s_count = _puts(va_arg(args, char *));
-			x++;
-			cnt += (s_count - 1);
-		}
-		else if (format[x + 1] == '%')
-		{
-			_putchar('%');
+			buffer[buff_ind++] = format[x];
+			if (buff_ind == BUFF_SIZE)
+				print_buffer(buffer, &buff_ind);
+			/* write(1, &format[x], 1);*/
+			print_ch++;
 		}
 		else
 		{
-			return (0);
+			print_buffer(buffer, &buff_ind);
+			flags = get_flags(format, &x);
+			width = get_width(format, &x, list);
+			precision = get_precision(format, &x, list);
+			size = get_size(format, &x);
+			++x;
+			print = handle_print(format, &x, list, buffer,
+				flags, width, precision, size);
+			if (print == -1)
+				return (-1);
+			print_ch += print;
 		}
-		cnt += 1;
 	}
-	va_end(args);
-	return (cnt);
-}
-/**
- * _puts - print string
- *@c: string
- * Return: number opf byte
- */
-int _puts(char *c)
-{
-	int count;
 
-	if (c)
-	{
-		for (count = 0; c[count] != '\0'; count++)
-		{
-			_putchar(c[count]);
-		}
-	}
-	return (count);
+	print_buffer(buffer, &buff_ind);
+
+	va_end(list);
+
+	return (print_ch);
 }
+
 /**
- * _putchar - print a character
- *@y: char input as parameter
- * Return: 1(success)
+ * print_buffer - Prints the contents of the buffer if it exist
+ * @buffer: Array of chars
+ * @buff_ind: Index at which to add next char, represents the length.
  */
-int _putchar(char y)
+void print_buffer(char buffer[], int *buff_ind)
 {
-	return (write(1, &y, 1));
-}
+	if (*buff_ind > 0)
+		write(1, &buffer[0], *buff_ind);
+
+	*buff_ind = 0;
+}	
