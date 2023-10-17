@@ -1,28 +1,9 @@
 #include "main.h"
-#include <stdio.h>
-#include <unistd.h>
 /**
  * _printf - produces output according to a format.
  * @*format: character string.
  * Return:  the number of characters printed.
  */
-int _puts(char *c)
-{
-        int count = 0;
-
-        if (c)
-        {
-                for (count = 0; c[count] != '\0'; count++)
-                {
-                        _putchar(c[count]);
-                }
-        }
-        return (count);
-}
-int _putchar(char y)
-{
-        return (write(1, &y, 1));
-}
 int _printf(const char *format, ...)
 {
         unsigned int x, cnt = 0;
