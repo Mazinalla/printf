@@ -40,3 +40,20 @@ int _printf(const char *format, ...)
 	va_end(args);
 	return (cnt);
 }
+int _puts(char *c)
+{
+	int count = 0;
+
+	if (c)
+	{
+		for (count = 0; c[count] != '\0'; count++)
+		{
+			_putchar(c[count]);
+		}
+	}
+	return (count);
+}
+int _putchar(char y)
+{
+	return (write(1, &y, 1));
+}
