@@ -42,8 +42,7 @@ int _printf(const char *format, ...)
 }
 /**
  * _puts - print string
- *
- * @c: string
+ *@c: string
  * Return: number opf byte
  */
 int _puts(char *c)
@@ -61,7 +60,7 @@ int _puts(char *c)
 }
 /**
  * putchar - print a character
- * @c: char input as parameter
+ *@c: char input as parameter
  * Return: 1(success)
  */
 int _putchar(char y)
