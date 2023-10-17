@@ -35,10 +35,8 @@ int _printf(const char *format, ...)
 		{
 			_putchar('%');
 		}
-		else if (format[x] == '%' && format[x + 1] == '\0')
-		{
-			return (-1);
-		}
+		else
+		return (-1);
 		return (0);
 		cnt += 1;
 	}
@@ -52,7 +50,7 @@ int _printf(const char *format, ...)
  */
 int _puts(char c)
 {
-	int count = 0;
+	int count;
 
 	if (c)
 	{
