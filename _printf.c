@@ -35,7 +35,10 @@ int _printf(const char *format, ...)
 		{
 			_putchar('%');
 		}
-		return (0);
+		else
+		{
+			return (0);
+		}
 		cnt += 1;
 	}
 	va_end(args);
@@ -46,7 +49,7 @@ int _printf(const char *format, ...)
  *@c: string
  * Return: number opf byte
  */
-int _puts(char c)
+int _puts(char *c)
 {
 	int count;
 
