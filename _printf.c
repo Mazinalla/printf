@@ -35,6 +35,10 @@ int _printf(const char *format, ...)
 		{
 			_putchar('%');
 		}
+		else if (format[x] == '%' && format[x + 1] == 'NULL')
+		{
+			return (-1);
+		}
 		cnt += 1;
 	}
 	va_end(args);
