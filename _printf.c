@@ -40,6 +40,12 @@ int _printf(const char *format, ...)
 	va_end(args);
 	return (cnt);
 }
+/**
+ * _puts - print string
+ *
+ * @c: string
+ * Return: number opf byte
+ */
 int _puts(char *c)
 {
 	int count = 0;
@@ -53,6 +59,11 @@ int _puts(char *c)
 	}
 	return (count);
 }
+/**
+ * putchar - print a character
+ * @c: char input as parameter
+ * Return: 1(success)
+ */
 int _putchar(char y)
 {
 	return (write(1, &y, 1));
