@@ -12,7 +12,7 @@ int _printf(const char *format, ...)
 
 	va_list args;
 
-        va_start(args, format);
+	va_start(args, format);
 
 	for (x = 0; format[x] != '\0'; x++)
 	{
@@ -59,8 +59,8 @@ int _puts(char *c)
 	return (count);
 }
 /**
- * putchar - print a character
- *@c: char input as parameter
+ * _putchar - print a character
+ *@y: char input as parameter
  * Return: 1(success)
  */
 int _putchar(char y)
