@@ -47,8 +47,6 @@ int _printf(const char *format, ...)
  */
 int _puts(char *c)
 {
-	int length;
-
 	int count = 0;
 
 	if (c)
