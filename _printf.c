@@ -39,11 +39,8 @@ int _printf(const char *format, ...)
 		{
 			return (-1);
 		}
-		else if (format[x] == '%' && format[x + 1] == 'd')
-		{
-		
-			print_d(va_arg(args, int *));
-		}
+		else
+		_putchar(va_arg(args, int *));
 		return (0);
 		cnt += 1;
 	}
@@ -79,7 +76,7 @@ int _putchar(char y)
 }
 /**
  * print_d - checks for a digit (0 through 9).
- *@c: character 
+ * @c: character
  * Return: Always 0.
  */
 int print_d(int *c)
@@ -87,11 +84,11 @@ int print_d(int *c)
 	int x = 0;
 
 	if (c)
-        for (x = 48; c[x] < 58; x++)
-        {
-                _putchar(c[x]);
-        }
-        _putchar('\n');
+	for (x = 48; c[x] < 58; x++)
+	{
+		_putchar(c[x]);
+	}
+	_putchar('\n');
 	return (0);
 }
 /**
@@ -101,17 +98,17 @@ int print_d(int *c)
  */
 int print_ld(int *n)
 {
-        int a;
+	int a;
 
-        if (n < 0)
-        n = -n;
+	if (n < 0)
+	n = -n;
 
-        a = n % 10;
+	a = n % 10;
 
-        if (a < 0)
-                a = -a;
+	if (a < 0)
+	a = -a;
 
-        _putchar(a + '0');
+	_putchar(a + '0');
 
-        return (a);
+	return (a);
 }
