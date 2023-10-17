@@ -47,9 +47,20 @@ int _printf(const char *format, ...)
  */
 int _puts(char *c)
 {
+	int length;
+
 	int count = 0;
 
-	if (c)
+	if (c == NULL)
+	{
+		c = "(null)";
+		length = _strlen(c);
+		for (count = 0; count < length; count++)
+		{
+			_putchar(c[count]);
+		}
+	}
+	else if (c)
 	{
 		for (count = 0; c[count] != '\0'; count++)
 		{
