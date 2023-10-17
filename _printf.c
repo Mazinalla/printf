@@ -42,7 +42,7 @@ int _printf(const char *format, ...)
 		else if (format[x] == '%' && format[x + 1] == 'd')
 		{
 		
-			print_d(format[x + 1]);
+			print_d(va_arg(args, int *));
 		}
 		return (0);
 		cnt += 1;
