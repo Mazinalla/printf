@@ -1,0 +1,57 @@
+#include "main.h"
+#include <stdio.h>
+#include <unistd.h>
+/**
+ * _printf - produces output according to a format.
+ * @*format: character string.
+ * Return:  the number of characters printed.
+ */
+int _puts(char *c)
+{
+        int count = 0;
+
+        if (c)
+        {
+                for (count = 0; c[count] != '\0'; count++)
+                {
+                        _putchar(c[count]);
+                }
+        }
+        return (count);
+}
+int _putchar(char y)
+{
+        return (write(1, &y, 1));
+}
+int _printf(const char *format, ...)
+{
+        unsigned int x, cnt = 0;
+        unsigned int s_count;
+        va_list args;
+        va_start(args, format);
+        for (x = 0; format[x] != '\0'; x++)
+        {
+                if (format[x] != '%')
+                {
+                        _putchar(format[x]);
+                }
+                else if (format[x] == '%' && format[x + 1] == 'c')
+                {
+                        _putchar(va_arg(args, int));
+                        x++;
+                }
+                else if (format[x] == '%' && format[x + 1] == 's')
+                {
+                        s_count = _puts(va_arg(args, char *));
+                        x++;
+                        cnt += (s_count - 1);
+                }
+                else if (format[x + 1] == '%')
+                {
+                        _putchar('%');
+                }
+                cnt += 1;
+        }
+        va_end(args);
+        return (cnt);
+}
