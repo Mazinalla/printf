@@ -44,30 +44,3 @@ int _printf(const char *format, ...)
 	va_end(args);
 	return (cnt);
 }
-/**
- * _puts - print string
- *@c: string
- * Return: number opf byte
- */
-int _puts(char *c)
-{
-	int count;
-
-	if (c)
-	{
-		for (count = 0; c[count] != '\0'; count++)
-		{
-			_putchar(c[count]);
-		}
-	}
-	return (count);
-}
-/**
- * _putchar - print a character
- *@y: char input as parameter
- * Return: 1(success)
- */
-int _putchar(char y)
-{
-	return (write(1, &y, 1));
-}
