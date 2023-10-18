@@ -49,7 +49,7 @@ int _printf(const char *format, ...)
  *@c: string
  * Return: number opf byte
  */
-int _puts(char c)
+int _puts(char *c)
 {
 	int count;
 
