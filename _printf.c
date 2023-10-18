@@ -7,9 +7,13 @@
 int _printf(const char *format, ...)
 {
 	unsigned int x, cnt = 0;
+
 	unsigned int s_count;
+
 	va_list args;
+
 	va_start(args, format);
+
 	for (x = 0; format[x] != '\0'; x++)
 	{
 		if (format[x] != '%')
@@ -32,19 +36,17 @@ int _printf(const char *format, ...)
 			_putchar('%');
 		}
 		return (0);
-		else
-		{
-			return (0);
-		}
 		cnt += 1;
 	}
 	va_end(args);
-@@ -46,7 +49,7 @@ int _printf(const char *format, ...)
+	return (cnt);
+}
+/**
+ * _puts - print string
  *@c: string
  * Return: number opf byte
  */
 int _puts(char c)
-int _puts(char *c)
 {
 	int count;
 
