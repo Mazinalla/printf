@@ -39,6 +39,10 @@ int _printf(const char *format, ...)
 		{
 			return (-1);
 		}
+		else if (format[x] == '\0')
+		{
+			_putchar(va_arg(args, int));
+		}
 		cnt += 1;
 	}
 	va_end(args);
