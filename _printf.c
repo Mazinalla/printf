@@ -40,7 +40,7 @@ int _printf(const char *format, ...)
 			return (-1);
 		}
 		else
-		_putchar(va_arg(args, int));
+		_putchar(format[x]);
 		cnt += 1;
 	}
 	va_end(args);
